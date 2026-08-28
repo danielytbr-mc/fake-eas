@@ -1,7 +1,10 @@
-name: Android CI
+name: Init
 
 on:
   workflow_call
+
+permissions:
+  contents: write
 
 jobs:
   build:
