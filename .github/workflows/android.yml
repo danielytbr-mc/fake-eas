@@ -20,11 +20,31 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew build
+      run: chmod +x gradlew && ./gradlew build
+      
     - uses: actions/upload-artifact@v7
       with:
         path: app/build/*.apk
         archive: false
+
+    - name: Publish APK to GitHub Pages branch
+      run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Create a separate staging directory for the APK
+          mkdir -p staging
+          cp app/build/outputs/apk/debug/app-debug.apk staging/debug.apk
+          
+          # Switch to gh-pages branch (or create it if it doesn't exist)
+          git checkout --orphan gh-pages
+          git reset --hard
+          
+          # Move the APK to the root of the gh-pages branch
+          mv staging/debug.apk ./debug.apk
+          
+          # Commit and push
+          git add debug.apk
+          git commit -m "Automated APK update: ${{ github.run_number }}"
+          git push origin gh-pages --force
