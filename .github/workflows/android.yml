@@ -46,6 +46,6 @@ jobs:
           mv staging/debug.apk ./debug-${{ github.run_number }}.apk
           
           # Commit and push
-          git add debug.apk
+          git add debug-${{ github.run_number }}.apk
           git commit -m "Automated APK update: ${{ github.run_number }}"
           git push origin gh-pages --force
