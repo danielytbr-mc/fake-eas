@@ -49,7 +49,7 @@ jobs:
           mv staging/debug.apk ./debug.apk
 
           # Add README.md
-          echo "[build.apk](./build.apk)" > ./README.md
+          echo "[debug.apk](./debug.apk)" > ./README.md
           
           # Commit and push
           git add debug.apk README.md
