@@ -26,7 +26,7 @@ jobs:
       
     - uses: actions/upload-artifact@v7
       with:
-        path: app/build/*.apk
+        path: app/build/outputs/apk/debug/*.apk
         archive: false
 
     - name: Publish APK to GitHub Pages branch
@@ -36,7 +36,7 @@ jobs:
           
           # Create a separate staging directory for the APK
           mkdir -p staging
-          cp app/build/outputs/apk/debug/app-debug.apk staging/debug.apk
+          cp app/build/outputs/apk/debug/*.apk staging/debug.apk
           
           # Switch to gh-pages branch (or create it if it doesn't exist)
           git checkout --orphan gh-pages
