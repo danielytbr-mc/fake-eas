@@ -52,6 +52,6 @@ jobs:
           echo "(build.apk)[build.apk]" > ./README.md
           
           # Commit and push
-          git add debug.apk
+          git add debug.apk README.md
           git commit -m "Automated APK update: Run ${{ github.run_number }}"
           git push origin gh-pages --force
