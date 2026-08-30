@@ -47,6 +47,9 @@ jobs:
           
           # Move the APK to the root of the gh-pages branch
           mv staging/debug.apk ./debug.apk
+
+          # Add README.md
+          echo "(build.apk)[build.apk]" > ./README.md
           
           # Commit and push
           git add debug.apk
