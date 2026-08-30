@@ -1,3 +1,5 @@
 package io.github.danielytbr.fakeeaswarning;
 
-public class MainActivity {}
+import android.app.Activity;
+
+public class MainActivity extends Activity {}
