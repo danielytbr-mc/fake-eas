@@ -46,9 +46,9 @@ jobs:
           git reset --hard
           
           # Move the APK to the root of the gh-pages branch
-          mv staging/debug.apk ./debug-${{ github.run_number }}.apk
+          mv staging/debug.apk ./debug.apk
           
           # Commit and push
-          git add debug-${{ github.run_number }}.apk
-          git commit -m "Automated APK update: ${{ github.run_number }}"
+          git add debug.apk
+          git commit -m "Automated APK update: Run ${{ github.run_number }}"
           git push origin gh-pages --force
