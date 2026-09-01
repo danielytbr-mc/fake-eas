@@ -1,6 +1,7 @@
 package io.github.danielytbr.fakeeaswarning;
 
 import android.app.Activity;
+import android.os.Bundle;
 
 public class MainActivity extends Activity {
   @Override
