@@ -4,6 +4,6 @@
   android:layout_height="match_parent"
   android:orientation="horizontal"
   android:padding="16dp"
-  android:background="#1e1e1e">
-
+  android:background="#000000">
+  
 </LinearLayout>
